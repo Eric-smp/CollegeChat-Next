@@ -1,23 +1,39 @@
 import IconLogo from '@/assets/svg/iconLogo.svg'
-import { Button } from '@/components'
+import { Button, TextNavHeader } from '@/components'
 import * as Styles from './styles'
+import { useGlobal } from '@/hooks/context/global'
+import {useTheme} from 'styled-components'
 
 export function Header() {
+  const {setVisibleBorder} = useGlobal()
+
+  const theme = useTheme()
+  
   return (
     <Styles.Wrapper>
       <div className="nameCompanyHeader">
         <IconLogo />
         <h1>CollegeChat</h1>
       </div>
-      <div className="textNavHeader">
-        <h1>Inicio</h1>
-        <h1>Sobre nós</h1>
-        <h1>Contato</h1>
-      </div>
+      <TextNavHeader />
 
       <div className="loginSingUp">
-      <Button label='Entrar' colorBorder='red' color='red' backColor={'green'} />
-      <Button label='Inscrever-se' colorBorder='red' color='red' backColor={'green'} />
+        <Button
+          label="Entrar"
+          color="#f2edac"
+          backColor={'#39a04e'}
+          colorHover={''}
+          backColorHover={''}
+        />
+        <Button
+          label="Inscrever-se"
+          colorBorder="red"
+          color="#efebb9"
+          backColor={'#39a04e'}
+          colorHover={''}
+          backColorHover={theme.}
+          isBorder={true}
+        />
       </div>
     </Styles.Wrapper>
   )

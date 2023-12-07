@@ -26,4 +26,11 @@ module.exports = {
 
     return config
   },
+  compiler: {
+    styledComponents: true,
+  },
+  reactStrictMode: true,
+  compiler: {
+    styledComponents: true,
+  },
 }

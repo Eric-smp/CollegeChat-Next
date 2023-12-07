@@ -1,7 +1,10 @@
 export type TParameterButton={
-    label:string
-    colorBorder:string
-    color:string
-    backColor:string
+    label?:string
+    isBorder?:boolean
+    colorBorder?:string
+    color?:string
+    backColor?:string
+    colorHover?:string
+    backColorHover?:string
    
 }

@@ -1,14 +1,10 @@
-import {
-  useState,
-  useEffect,
-  useContext,
-  createContext,
-  useMemo,
-} from 'react'
+import { useState, useEffect, useContext, createContext, useMemo } from 'react'
 import { GlobalProps, ChildrenType } from '@/types'
 
 export const StateInitial: GlobalProps = {
   desktopHeaderMenu: false,
+  visibleBorder: false,
+  setVisibleBorder: () => {},
   setDesktopHeaderMenu: () => {},
 }
 
@@ -17,13 +13,16 @@ const GlobalContext = createContext<GlobalProps>(StateInitial)
 function GlobalProvider({ children }: ChildrenType) {
   const [desktopHeaderMenu, setDesktopHeaderMenu] = useState<boolean>(false)
   useEffect(() => {}, [desktopHeaderMenu])
+  const [visibleBorder, setVisibleBorder] = useState<boolean>(false)
 
   const value = useMemo(
     () => ({
       desktopHeaderMenu,
+      visibleBorder,
+      setVisibleBorder,
       setDesktopHeaderMenu,
     }),
-    [desktopHeaderMenu, setDesktopHeaderMenu],
+    [desktopHeaderMenu, visibleBorder, setDesktopHeaderMenu],
   )
 
   return (
@@ -31,6 +30,6 @@ function GlobalProvider({ children }: ChildrenType) {
   )
 }
 
-const useGlobal = ()=> useContext(GlobalContext)
+const useGlobal = () => useContext(GlobalContext)
 
-export {GlobalProvider, useGlobal}
+export { GlobalProvider, useGlobal }

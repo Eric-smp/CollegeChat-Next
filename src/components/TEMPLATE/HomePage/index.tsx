@@ -3,7 +3,7 @@ import {Header} from '@/components'
 export function HomePage(){
     return(
         <Styles.ContentPage>
-            <Header/>
+            <Header />
         </Styles.ContentPage>
     )
 }
